@@ -2,11 +2,11 @@
 
 // //setting variable
 let hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-let customersPerHour = []
-let cookiesPerHour = []
+
+let storeLocations = [];
 
 //Constructor for location objects.
-function Storelocation(location, minCust, maxCust, avgSales, totalCookies) {
+function Storelocation(location, minCust, maxCust, avgSales) {
   this.location = location;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -14,36 +14,36 @@ function Storelocation(location, minCust, maxCust, avgSales, totalCookies) {
   this.totalCookies = 0;
   this.customersPerHour = [];
   this.cookiesPerHour = [];
-  this.calcCustomers = calcCustomers();
-  this.calcCookies = calcCookies();
+ storeLocations.push(this);
 }
-
 //Constructor
-const Seattle = new Storelocation('Seattle', 23, 65, 6.3)
-const Tokyo =  new Storelocation('Tokyo', 3 , 24, 1.2)
-const Dubai = new Storelocation('Dubai', 11, 38, 3.7)
-const Paris = new Storelocation('Paris', 20, 38, 2.3)
-const Lima = new Storelocation('Lima', 2, 16, 4.6)
+const seattle = new Storelocation('Seattle', 23, 65, 6.3);
+const tokyo =  new Storelocation('Tokyo', 3, 24, 1.2);
+const dubai = new Storelocation('Dubai', 11, 38, 3.7);
+const paris = new Storelocation('Paris', 20, 38, 2.3);
+const lima = new Storelocation('Lima', 2, 16, 4.6);
 
-//prototype equations
-function calcCustomers() {
+//prototyping
+Storelocation.prototype.calcCustomers = function() {
   for (let i = 0; i < hoursOfOperation.length; i++) {
     this.customersPerHour.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust));
+    console.log(this.customersPerHour) 
   }
-}
-function calcCookies() {
+};
+Storelocation.prototype.calcCookies = function() {
+  this.calcCustomers()
   for (let i = 0; i < hoursOfOperation.length; i++) {
   this.cookiesPerHour.push(Math.ceil(this.customersPerHour[i] * this.avgSales));
   this.totalCookies += (this.cookiesPerHour[i]);
+  console.log(this.cookiesPerHour);
   }
-}
- 
-const Stores = [Seattle, Tokyo, Dubai, Paris, Lima]
+};
 
 // single function to render and 
 function calcStoreSales() {
-  for ( let i = 0; i < Stores.length; i++) {
-    let getStores = Stores[i];
+  for ( let i = 0; i < storeLocations.length; i++) {
+    let getStores = storeLocations[i];
+    getStores.calcCookies();
     dispStoreSales(getStores);
   }
 }
@@ -84,3 +84,4 @@ function dispStoreSales(locStore) {
  }
 
   calcStoreSales();
+  console.log(seattle)
