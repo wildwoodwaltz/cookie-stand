@@ -23,13 +23,8 @@ const Seattle = {
     this.calcCustomers()
     for (let i = 0; i < hoursOfOperation.length; i++) {
     this.cookiesPerHour.push(Math.ceil(this.customersPerHour[i] * this.avgSales));
+    this.totalCookies += (this.cookiesPerHour[i]);
     console.log(this.cookiesPerHour);
-    }
-  },
-  finalSales: function() {
-    for (let i = 0; i < hoursOfOperation.length; i++) {
-      this.totalCookies = (Math.ceil(this.cookiesPerHour[i] + this.totalCookies))[0];
-      console.log(this.totalCookies);
     }
   },
 }
@@ -52,13 +47,8 @@ const Tokyo = {
     this.calcCustomers()
     for (let i = 0; i < hoursOfOperation.length; i++) {
     this.cookiesPerHour.push(Math.ceil(this.customersPerHour[i] * this.avgSales));
+    this.totalCookies += (this.cookiesPerHour[i]);
     console.log(this.cookiesPerHour);
-    }
-  },
-  finalSales: function() {
-    for (let i = 0; i < hoursOfOperation.length; i++) {
-      this.totalCookies = (Math.ceil(this.cookiesPerHour[i] + this.totalCookies))[0];
-      console.log(this.totalCookies);
     }
   },
 }
@@ -81,13 +71,8 @@ const Dubai = {
     this.calcCustomers()
     for (let i = 0; i < hoursOfOperation.length; i++) {
     this.cookiesPerHour.push(Math.ceil(this.customersPerHour[i] * this.avgSales));
+    this.totalCookies += (this.cookiesPerHour[i]);
     console.log(this.cookiesPerHour);
-    }
-  },
-  finalSales: function() {
-    for (let i = 0; i < hoursOfOperation.length; i++) {
-      this.totalCookies = (Math.ceil(this.cookiesPerHour[i] + this.totalCookies))[0];
-      console.log(this.totalCookies);
     }
   },
 }
@@ -110,13 +95,8 @@ const Paris = {
     this.calcCustomers()
     for (let i = 0; i < hoursOfOperation.length; i++) {
     this.cookiesPerHour.push(Math.ceil(this.customersPerHour[i] * this.avgSales));
+    this.totalCookies += (this.cookiesPerHour[i]);
     console.log(this.cookiesPerHour);
-    }
-  },
-  finalSales: function() {
-    for (let i = 0; i < hoursOfOperation.length; i++) {
-      this.totalCookies = (Math.ceil(this.cookiesPerHour[i] + this.totalCookies))[0];
-      console.log(this.totalCookies);
     }
   },
 }
@@ -139,13 +119,8 @@ const Lima = {
     this.calcCustomers()
     for (let i = 0; i < hoursOfOperation.length; i++) {
     this.cookiesPerHour.push(Math.ceil(this.customersPerHour[i] * this.avgSales));
+    this.totalCookies += (this.cookiesPerHour[i]);
     console.log(this.cookiesPerHour);
-    }
-  },
-  finalSales: function() {
-    for (let i = 0; i < hoursOfOperation.length; i++) {
-      this.totalCookies = (Math.ceil(this.cookiesPerHour[i] + this.totalCookies))[0];
-      console.log(this.totalCookies);
     }
   },
 }
@@ -156,8 +131,7 @@ function calcStoreSales() {
   for ( let i = 0; i < Stores.length; i++) {
     let getStores = Stores[i];
     getStores.calcCookies();
-    getStores.finalSales();
-    dispStoreSales(Stores[i]);
+    dispStoreSales(getStores);
   }
 }
 
@@ -181,12 +155,14 @@ function dispStoreSales(locStore) {
   //append ul to article element after h1
   articleEl.appendChild(ulEl);
 
-  const liEl = document.createElement('li');
+  
   //set text content for each instance of cookie sales
-  for (i = 0; i < hoursOfOperation.length; i++) {
-  liEl.textContent = `${hoursOfOperation[i]}: ${locStore.cookiesPerHour[i]}`;
+  for (let j = 0; j < hoursOfOperation.length; j++) {
+  const liEl = document.createElement('li');
+  liEl.textContent = `${hoursOfOperation[j]}: ${locStore.cookiesPerHour[j]}`;
   ulEl.appendChild(liEl);
     }
+  const liEl = document.createElement('li');
   //change li text context from previous iteration in for loop
   liEl.textContent = `Total: ${locStore.totalCookies}`;
   //append content under <ul> after the rest of the <li> elements
