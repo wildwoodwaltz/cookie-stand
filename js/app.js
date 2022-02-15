@@ -1,9 +1,9 @@
 'use strict';
 
 // //setting variable
-let hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-
+let hoursOfOperation = ['6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00AM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM'];
 let storeLocations = [];
+let sales = document.getElementById('sales');
 
 //Constructor for location objects.
 function Storelocation(location, minCust, maxCust, avgSales) {
@@ -27,7 +27,6 @@ const lima = new Storelocation('Lima', 2, 16, 4.6);
 Storelocation.prototype.calcCustomers = function() {
   for (let i = 0; i < hoursOfOperation.length; i++) {
     this.customersPerHour.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust));
-    console.log(this.customersPerHour) 
   }
 };
 Storelocation.prototype.calcCookies = function() {
@@ -35,53 +34,57 @@ Storelocation.prototype.calcCookies = function() {
   for (let i = 0; i < hoursOfOperation.length; i++) {
   this.cookiesPerHour.push(Math.ceil(this.customersPerHour[i] * this.avgSales));
   this.totalCookies += (this.cookiesPerHour[i]);
-  console.log(this.cookiesPerHour);
   }
 };
 
-// single function to render and 
+//DOM Control/Create function table rendering
+Storelocation.prototype.render = function(){
+  this.calcCookies();
+  const tbodyElement = document.createElement('tbody');
+  sales.appendChild(tbodyElement);
+  const trTwoElement = document.createElement('tr');
+  tbodyElement.appendChild(trTwoElement);
+  const thElement = document.createElement('th');
+  thElement.textContent = `${this.location}`;
+  trTwoElement.appendChild(thElement);
+   for (let i = 0; i < hoursOfOperation.length; i++){
+       const tdElement = document.createElement('td');
+       tdElement.textContent = `${this.cookiesPerHour[i]}`;
+       trTwoElement.appendChild(tdElement);
+     }
+  const dailyFinal = document.createElement('td');
+  dailyFinal.textContent = `${this.totalCookies}`
+  trTwoElement.appendChild(dailyFinal);
+   }
+ 
+
+//initial table header creation
+function createTable(){
+const theadElement = document.createElement('thead')
+sales.appendChild(theadElement);
+const trElement = document.createElement('tr');
+theadElement.appendChild(trElement);
+let thElement = document.createElement('th');
+thElement.textContent = ``;
+trElement.appendChild(thElement);
+for (let j = 0; j < hoursOfOperation.length; j++){
+  const thColEl = document.createElement(`th`);
+  thColEl.textContent = `${hoursOfOperation[j]}`;
+  trElement.appendChild(thColEl);
+}
+const tableTotalDaily = document.createElement('th')
+tableTotalDaily.textContent = `Total Daily Cookie Sales`;
+trElement.appendChild(tableTotalDaily);
+}
+
+
+//called function to run everything
 function calcStoreSales() {
+  createTable();
   for ( let i = 0; i < storeLocations.length; i++) {
     let getStores = storeLocations[i];
-    getStores.calcCookies();
-    dispStoreSales(getStores);
+    getStores.render();
   }
 }
 
-let sales = document.getElementById('sales');
-
-// DOM Control/Create function 
-
-function dispStoreSales(locStore) {
-
-  const articleEl = document.createElement('article');
-  //append under sales id creating article element
-  sales.appendChild(articleEl);
-
-  const h1El = document.createElement('h1');
-  //Fill h1 element with text that is pulled from getStores variable which is written in looped function above. 
-  h1El.textContent = locStore.location;
-  //append under article element
-  articleEl.appendChild(h1El);
-
-  const ulEl = document.createElement('ul');
-  //append ul to article element after h1
-  articleEl.appendChild(ulEl);
-
-  
-  //set text content for each instance of cookie sales
-  for (let j = 0; j < hoursOfOperation.length; j++) {
-  const liEl = document.createElement('li');
-  liEl.textContent = `${hoursOfOperation[j]}: ${locStore.cookiesPerHour[j]}`;
-  ulEl.appendChild(liEl);
-    }
-  const liEl = document.createElement('li');
-  //change li text context from previous iteration in for loop
-  liEl.textContent = `Total: ${locStore.totalCookies}`;
-  //append content under <ul> after the rest of the <li> elements
-  ulEl.appendChild(liEl);
-
- }
-
   calcStoreSales();
-  console.log(seattle)
