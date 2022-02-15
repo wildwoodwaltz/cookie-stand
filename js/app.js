@@ -152,6 +152,15 @@ const Lima = {
  
 const Stores = [Seattle, Tokyo, Dubai, Paris, Lima]
 
+function calcStoreSales() {
+  for ( let i = 0; i < Stores.length; i++) {
+    let getStores = Stores[i];
+    getStores.calcCookies();
+    getStores.finalSales();
+    dispStoreSales(Stores[i]);
+  }
+}
+
 let sales = document.getElementById('sales');
 
 // DOM Control/Create function 
@@ -172,9 +181,9 @@ function dispStoreSales(locStore) {
   //append ul to article element after h1
   articleEl.appendChild(ulEl);
 
+  const liEl = document.createElement('li');
   //set text content for each instance of cookie sales
   for (i = 0; i < hoursOfOperation.length; i++) {
-  const liEl = document.createElement('li');
   liEl.textContent = `${hoursOfOperation[i]}: ${locStore.cookiesPerHour[i]}`;
   ulEl.appendChild(liEl);
     }
@@ -184,14 +193,5 @@ function dispStoreSales(locStore) {
   ulEl.appendChild(liEl);
 
  }
-
- function calcStoreSales() {
-  for ( let i = 0; i < Stores.length; i++) {
-    let getStores = Stores[i];
-    getStores.calcCookies();
-    getStores.finalSales();
-    dispStoreSales(getStores);
-  }
-}
 
   calcStoreSales();
