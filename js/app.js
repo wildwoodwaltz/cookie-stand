@@ -31,7 +31,7 @@ const Seattle = {
       this.totalCookies = (Math.ceil(this.cookiesPerHour[i] + this.totalCookies))[0];
       console.log(this.totalCookies);
     }
-  }
+  },
 }
 
 const Tokyo = {
@@ -60,10 +60,8 @@ const Tokyo = {
       this.totalCookies = (Math.ceil(this.cookiesPerHour[i] + this.totalCookies))[0];
       console.log(this.totalCookies);
     }
-  }
+  },
 }
-
-
 
 const Dubai = {
   location: 'Dubai',
@@ -91,10 +89,8 @@ const Dubai = {
       this.totalCookies = (Math.ceil(this.cookiesPerHour[i] + this.totalCookies))[0];
       console.log(this.totalCookies);
     }
-  }
+  },
 }
-
-
 
 const Paris = {
   location: 'Paris',
@@ -122,10 +118,8 @@ const Paris = {
       this.totalCookies = (Math.ceil(this.cookiesPerHour[i] + this.totalCookies))[0];
       console.log(this.totalCookies);
     }
-  }
+  },
 }
-
-
 
 const Lima = {
   location: 'Lima',
@@ -153,12 +147,45 @@ const Lima = {
       this.totalCookies = (Math.ceil(this.cookiesPerHour[i] + this.totalCookies))[0];
       console.log(this.totalCookies);
     }
-  }
+  },
 }
  
 const Stores = [Seattle, Tokyo, Dubai, Paris, Lima]
 
-function calcStoreSales() {
+let sales = document.getElementById('sales');
+
+// DOM Control/Create function 
+
+function dispStoreSales(locStore) {
+
+  const articleEl = document.createElement('article');
+  //append under sales id creating article element
+  sales.appendChild(articleEl);
+
+  const h1El = document.createElement('h1');
+  //Fill h1 element with text that is pulled from getStores variable which is written in looped function above. 
+  h1El.textContent = locStore.location;
+  //append under article element
+  articleEl.appendChild(h1El);
+
+  const ulEl = document.createElement('ul');
+  //append ul to article element after h1
+  articleEl.appendChild(ulEl);
+
+  //set text content for each instance of cookie sales
+  for (i = 0; i < hoursOfOperation.length; i++) {
+  const liEl = document.createElement('li');
+  liEl.textContent = `${hoursOfOperation[i]}: ${locStore.cookiesPerHour[i]}`;
+  ulEl.appendChild(liEl);
+    }
+  //change li text context from previous iteration in for loop
+  liEl.textContent = `Total: ${locStore.totalCookies}`;
+  //append content under <ul> after the rest of the <li> elements
+  ulEl.appendChild(liEl);
+
+ }
+
+ function calcStoreSales() {
   for ( let i = 0; i < Stores.length; i++) {
     let getStores = Stores[i];
     getStores.calcCookies();
@@ -167,3 +194,4 @@ function calcStoreSales() {
   }
 }
 
+  calcStoreSales();
