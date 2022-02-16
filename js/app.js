@@ -3,7 +3,6 @@
 // //setting variable
 let hoursOfOperation = ['6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00AM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM'];
 let storeLocations = [];
-let hourlyTotal =[];
 let sales = document.getElementById('sales');
 
 //Constructor for location objects.
@@ -81,9 +80,11 @@ trElement.appendChild(tableTotalDaily);
 function renderTableFooter(){
 const tfootElement = document.createElement('tfoot')
 sales.appendChild(tfootElement);
+const tFootRow = document.createElement('tr')
+tfootElement.appendChild(tFootRow);
 const hourlyTotalTable = document.createElement('th')
 hourlyTotalTable.textContent = `Hourly Totals`
-tfootElement.appendChild(hourlyTotalTable)
+tFootRow.appendChild(hourlyTotalTable)
   //calculate each instance of cookies
     //Run once for each hour of operation
   let grandDailyTotal = 0
@@ -97,13 +98,13 @@ tfootElement.appendChild(hourlyTotalTable)
     const tdGrandHourTotal = document.createElement('td')
     //after each instance report grand hourly total to table
     tdGrandHourTotal.textContent = `${grandHourTotal}`
-    tfootElement.appendChild(tdGrandHourTotal);  
+    tFootRow.appendChild(tdGrandHourTotal);  
     //add grand hour total to grand daily total until operation done.
     grandDailyTotal += grandHourTotal;
     }
   const tdGrandDailyTotal = document.createElement ('td');
   tdGrandDailyTotal.textContent = `${grandDailyTotal}`;
-  tfootElement.appendChild(tdGrandDailyTotal);
+  tFootRow.appendChild(tdGrandDailyTotal);
 }
 
 //called function to run everything
