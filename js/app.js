@@ -41,16 +41,20 @@ Storelocation.prototype.calcCookies = function() {
   }
 };
 
-//DOM Control/Create function table rendering
+//DOM Control/Create function table rendering - Will run once per store. 
 Storelocation.prototype.render = function(){
   this.calcCookies();
+
   const tbodyElement = document.createElement('tbody');
   sales.appendChild(tbodyElement);
+
   const trTwoElement = document.createElement('tr');
   tbodyElement.appendChild(trTwoElement);
+
   const thElement = document.createElement('th');
   thElement.textContent = `${this.location}`;
   trTwoElement.appendChild(thElement);
+//populate list with every hour of cookies
    for (let i = 0; i < hoursOfOperation.length; i++){
        const tdElement = document.createElement('td');
        tdElement.textContent = `${this.cookiesPerHour[i]}`;
@@ -64,31 +68,42 @@ Storelocation.prototype.render = function(){
 
 //initial table header creation
 function renderTableHeader(){
+
 const theadElement = document.createElement('thead')
 sales.appendChild(theadElement);
+
 const trElement = document.createElement('tr');
 theadElement.appendChild(trElement);
+
 let thElement = document.createElement('th');
 thElement.textContent = ``;
 trElement.appendChild(thElement);
+
 for (let j = 0; j < hoursOfOperation.length; j++){
   const thColEl = document.createElement(`th`);
   thColEl.textContent = `${hoursOfOperation[j]}`;
   trElement.appendChild(thColEl);
 }
+
 const tableTotalDaily = document.createElement('th')
 tableTotalDaily.textContent = `Total Daily Cookie Sales`;
 trElement.appendChild(tableTotalDaily);
+
 }
 
+//table footer creation
 function renderTableFooter(){
+
 const tfootElement = document.createElement('tfoot')
 sales.appendChild(tfootElement);
+
 const tFootRow = document.createElement('tr')
 tfootElement.appendChild(tFootRow);
+
 const hourlyTotalTable = document.createElement('th')
 hourlyTotalTable.textContent = `Hourly Totals`
 tFootRow.appendChild(hourlyTotalTable)
+
   //calculate each instance of cookies
     //Run once for each hour of operation
   let grandDailyTotal = 0
