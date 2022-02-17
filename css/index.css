@@ -1,0 +1,107 @@
+body  {
+  background-image: url(../img/seattleskyline.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-color:#002550 ;
+}
+/* Start header formatting */
+body header {
+  background-color:  #002550;
+}
+body header nav {
+  display: flex;
+  z-index: 2;
+}
+body nav ul {
+  display: flex;
+  height: 75px;
+  width: 200px;
+}
+body header nav ul.left{
+  justify-content: left;
+}
+body header nav ul.right{
+  justify-content: right;
+  margin-left: auto;
+}
+body header nav ul li a{
+  text-decoration: none;
+  display: flex;
+  padding: 25px;
+  font-size: 25px;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+}
+body header nav ul li a.hover{
+  background-color: green;
+}
+
+body header div{
+  width: 960px;
+  display: block;
+  background-image: url(../img/woodgrain.jpg) ;
+  border-radius: 1000px;
+  border-style:outset;
+  border-color: brown;
+  border-width: 5px;
+  z-index: 3;
+  position: absolute;
+  top:40px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin-bottom: 400px;
+}
+
+body header div image{
+  margin: auto;
+}
+body header div p {
+  font-size: 64px;
+  font-family: 'Playball', cursive;
+  color: whitesmoke;
+  text-shadow: #FC0 1px 0 10px;
+}
+/* End header stuff */
+/* Start Body */
+main {
+  width: 960px;
+  margin: auto;
+}
+
+
+/* End Body */
+/* Footer Stuff */
+body footer {
+  display: inline-flex;
+  background-color: #002550;
+  position: absolute;
+  bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  justify-content: stretch;
+}
+
+body footer div{
+  display: flex;
+  color: white;
+  width: 960px;
+  margin: auto;
+}
+body footer div div {
+  display:flex;
+  flex-direction: column;
+  width: 162px;
+  align-items: stretch;
+}
+body footer div div p:first-child {
+  font-size: larger;
+  font-weight: bold;
+  margin-bottom: .5em;
+}
