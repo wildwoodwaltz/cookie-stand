@@ -17,7 +17,7 @@ v.2.0 - Added Home page and styling.
 
 - [reset.css code](http://meyerweb.com/eric/tools/css/reset/)
 - [color palette](https://coolors.co/)
-- [Google Font - PLay Ball]https://fonts.google.com/specimen/Playball?query=playball
+- [Google Font - PLay Ball](https://fonts.google.com/specimen/Playball?query=playball)
 - [CSS Reference MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
 - [Flex table Reference](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 - [ ]
@@ -26,7 +26,10 @@ v.2.0 - Added Home page and styling.
 
 ### Reflections
 
+I really shouldn't set the bar so high for myself. I don't need to do all the things... Even though I want to.
+Sometimes you just need to walk away from your code and sleep on it. 
 
 ### Comments
 
-- Pat... Why these cookies... 
+- Pat... Why these cookies... Seriously what were you thinking. 
+
