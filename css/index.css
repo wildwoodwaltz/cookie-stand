@@ -76,21 +76,54 @@ body header div p {
 /* backgrounds */
 .main:nth-child(1) {
   background-image: url(../img/seattleskyline.jpg);
-}
-
-body main section #family{
   display: flex;
-}
-body main section #family div{
-  display: flex;
-  flex-direction: column;
+  font-size: 120px;
+  font-family: 'Playball', cursive;
+  color: whitesmoke;
+  text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+  justify-content: center;
+  align-items: center;
 }
 .main:nth-child(2) {
   background-color:#002550;
 }
+body main section.main #family{
+  display:inline-flex;
+}
+body main section.main #family div{
+  display: flex;
+  flex-direction: column;
+  color: aliceblue;
+}
+body main section.main #family div h1{
+  text-align: center;
+  font-family: 'Playball', cursive;
+  font-size: 60px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+body main section.main #family div p{
+  margin:auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 75%;
+  font-size: 1.75em;
+  line-height: 1.25em;
 
+}
 .main:nth-child(3) {
-  background-image: url(../img/pikeplace.jpg);
+  background-image: url(../img/fishbg.jpg);
+    display: flex;
+  font-size: 120px;
+  font-family: 'Playball', cursive;
+  color: whitesmoke;
+  text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+  justify-content: center;
+  align-items: center;
+}
+
+.main:nth-child(4) {
+  background-color:#002550;
 }
 
 
@@ -124,5 +157,8 @@ body footer div div {
 body footer div div p:first-child {
   font-size: larger;
   font-weight: bold;
+  margin-bottom: .5em;
+}
+body footer div div p:nth-child(2){
   margin-bottom: .5em;
 }
