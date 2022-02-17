@@ -2,8 +2,9 @@ body  {
   background-image: url(../img/seattleskyline.jpg);
   background-size:cover;
   background-repeat: no-repeat;
-  background
+  background-color:#002550 ;
 }
+/* Start header formatting */
 body header {
   background-color:  #002550;
 }
@@ -30,13 +31,11 @@ body header nav ul li a{
   font-size: 25px;
   text-align: center;
   justify-content: center;
-  transition: 350ms;
   cursor: pointer;
   color: white;
 }
 body header nav ul li a.hover{
   background-color: green;
-
 }
 
 body header div{
@@ -55,6 +54,7 @@ body header div{
   left: 0;
   right: 0;
   text-align: center;
+  margin-bottom: 400px;
 }
 
 body header div image{
@@ -65,4 +65,43 @@ body header div p {
   font-family: 'Playball', cursive;
   color: whitesmoke;
   text-shadow: #FC0 1px 0 10px;
+}
+/* End header stuff */
+/* Start Body */
+main {
+  width: 960px;
+  margin: auto;
+}
+
+
+/* End Body */
+/* Footer Stuff */
+body footer {
+  display: inline-flex;
+  background-color: #002550;
+  position: absolute;
+  bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  justify-content: stretch;
+}
+
+body footer div{
+  display: flex;
+  color: white;
+  width: 960px;
+  margin: auto;
+}
+body footer div div {
+  display:flex;
+  flex-direction: column;
+  width: 162px;
+  align-items: stretch;
+}
+body footer div div p:first-child {
+  font-size: larger;
+  font-weight: bold;
+  margin-bottom: .5em;
 }
