@@ -88,17 +88,25 @@ body header div p {
   background-color:#002550;
 }
 body main section.main #family{
-  display:inline-flex;
+  display:flex;
+}
+body main section.main #family img{
+  height: auto;
+  width: 100%;
+
+
 }
 body main section.main #family div{
   display: flex;
   flex-direction: column;
   color: aliceblue;
 }
+
 body main section.main #family div h1{
   text-align: center;
   font-family: 'Playball', cursive;
   font-size: 60px;
+  font-size: 5vh;
   margin-top: 15px;
   margin-bottom: 15px;
 }
@@ -107,7 +115,7 @@ body main section.main #family div p{
   margin-top: 15px;
   margin-bottom: 15px;
   width: 75%;
-  font-size: 1.75em;
+  font-size: 18px;
   line-height: 1.25em;
 
 }
@@ -136,7 +144,6 @@ body main section.main #products{
 body main section.main #products div{
   display: flex;
   flex-direction: column;
-  width: 960px;
   color: aliceblue;
   margin:auto;
   align-items: center;
