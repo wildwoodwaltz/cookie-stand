@@ -5,6 +5,7 @@ let hoursOfOperation = ['6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:0
 let storeLocations = [];
 let traffic= [0.5, 0.75, 1.0, 0.6, 0.8, 1.0, 0.7, 0.4, 0.6, 0.9, 0.7, 0.5, 0.3, 0.4, 0.6];
 let sales = document.getElementById('sales');
+let newStoreForm = document.getElementById('add-store');
 
 //Constructor for location objects.
 function Storelocation(location, minCust, maxCust, avgSales) {
@@ -95,6 +96,7 @@ trElement.appendChild(tableTotalDaily);
 function renderTableFooter(){
 
 const tfootElement = document.createElement('tfoot')
+tfootElement.setAttribute('id', 'tfooter')
 sales.appendChild(tfootElement);
 
 const tFootRow = document.createElement('tr')
@@ -137,3 +139,27 @@ function calcStoreSales() {
 }
 
   calcStoreSales();
+
+  //1.grab element to listen to. see variable set at top
+ 
+
+  //3.Event Handler - once the event sounds what to do with that information
+  function handleSubmit(event){
+    event.preventDefault();
+    console.log('submit');
+    let location = event.target.location.value;
+    let minCust = +event.target.minCust.value;
+    let maxCust = +event.target.maxCust.value;
+    let avgSales = +event.target.avgSales.value;
+    let newStore = new Storelocation(location, minCust, maxCust, avgSales);
+    newStore.render();
+    let tableFootRemove = document.getElementById('tfooter');
+    tableFootRemove.innerHTML ="";
+    tableFootRemove.remove();
+    renderTableFooter();
+    newStoreForm.reset();
+
+  }
+
+  //2. Attach event listener and tell it what event to listen for and pass into event handler
+  newStoreForm.addEventListener('submit', handleSubmit)

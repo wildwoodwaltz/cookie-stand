@@ -33,6 +33,29 @@
 <body>
   <h1>Location Sales Data</h1>
   <table id="sales"></table>
+  <section id="entryfield">
+  <form id="add-store">
+    <fieldset>
+      <legend>Add a new store location</legend>
+
+      <label for="locations">Store Location:</label>
+      <input id="locations" type="text" name="location" required="required" placeholder ="Store Name">
+      
+      <label for="minC">Minimum Customers:</label>
+      <input id="minC" type="number" name="minCust" min="0" required="required" class="input" placeholder ="Min Customer Traffic">
+      
+      <label for="maxC">Maximum Customers:</label>
+      <input id="maxC" type="number" name="maxCust" min="0" required="required" class="input" placeholder ="Max Customer Traffic">
+      
+      <label for="aveSale">Avg Cookies Sold Per Hour:</label>
+      <input id="aveSale" type="number" name="avgSales" step="0.01" min="0" required="required" class="input" placeholder ="0.00">
+    </fieldset>
+    <button type="submit">Submit New Store</button>
+  </form>
+</section>
+<footer>
+  <p>1</p>
+</footer>
 </body>
 <script src="./js/app.js"></script>
 </html>
