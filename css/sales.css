@@ -183,6 +183,7 @@ body #add-store fieldset{
 body #add-store fieldset legend {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 18px;
+  color: #002550;
   margin-bottom: 15px;
 }
 body #add-store fieldset input{
